@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To: Amber ✨</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff0f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ff1493;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .card {
+        background-color: #ffe4e1;
+        border: 3px solid #ffb6c1;
+        border-radius: 10px;
+        padding: 60px 40px;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote {
+        font-family: Georgia, serif;
+        font-size: 18px;
+        color: #8b008b;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .quote.final {
+        font-weight: bold;
+      }
+
+      .button-container {
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .next-button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 12px 40px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .next-button:hover {
+        background-color: #ff1493;
+      }
+
+      .next-button:active {
+        transform: scale(0.98);
+      }
+
+      .footer {
+        font-size: 11px;
+        font-style: italic;
+        color: #db7093;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        .title {
+          font-size: 24px;
+        }
+
+        .card {
+          padding: 40px 30px;
+          min-height: 250px;
+        }
+
+        .quote {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">💖 To: Amber 💖</div>
+
+      <div class="card">
+        <div class="quote" id="quoteText">
+          I know you're not feeling well, but you can do it!
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="next-button" id="nextButton">Next →</button>
+      </div>
+
+      <div class="footer">You are loved and supported! 💕</div>
+    </div>
+
+    <script>
+      const quotes = [
+        "I know you're not feeling well, but you can do it!",
+        "This too shall pass. Stay strong!",
+        "Believe in yourself. You're capable of more than you think.",
+        "Hard times don't last, but tough people do.",
+        "Keep going, even when it feels tough. You are stronger than you know.",
+        "Remember, you're amazing, and you can handle anything that comes your way.",
+        "So take care, and remember you're not alone.",
+        "And if you ever feel lonely, just know I'm always here for you.",
+      ];
+
+      let currentIndex = 0;
+      let showingFinal = false;
+
+      const quoteText = document.getElementById("quoteText");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (showingFinal) {
+          window.close();
+          return;
+        }
+
+        if (currentIndex < quotes.length - 1) {
+          currentIndex++;
+          quoteText.textContent = quotes[currentIndex];
+        } else {
+          showFinalMessage();
+        }
+      });
+
+      function showFinalMessage() {
+        showingFinal = true;
+        quoteText.innerHTML =
+          "🌟 You've made it through the journey! 🌟<br><br>Stay strong, you're amazing!<br><br>Remember these words whenever you need them.";
+        quoteText.classList.add("final");
+        nextButton.textContent = "OK";
+      }
+    </script>
+  </bod y>
+</html>
